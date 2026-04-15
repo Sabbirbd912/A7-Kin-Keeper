@@ -1,0 +1,122 @@
+[
+  {
+    "id": 1,
+    "name": "Alex Rivera",
+    "picture": "https://picsum.photos/id/71/300/300",
+    "email": "alex@example.com",
+    "days_since_contact": 14,
+    "status": "soon",
+    "tags": ["gym", "hobby"],
+    "bio": "Met through mutual friends at a concert. Always up for adventure.",
+    "goal": 15,
+    "next_due_date": "2026-05-03"
+  },
+  {
+    "id": 2,
+    "name": "Jordan Lee",
+    "picture": "https://picsum.photos/id/64/300/300",
+    "email": "jordan@example.com",
+    "days_since_contact": 12,
+    "status": "soon",
+    "tags": ["online"],
+    "bio": "College roommate. We bond over late-night talks and bad movies.",
+    "goal": 19,
+    "next_due_date": "2026-04-28"
+  },
+  {
+    "id": 3,
+    "name": "Taylor Kim",
+    "picture": "https://picsum.photos/id/88/300/300",
+    "email": "taylor@example.com",
+    "days_since_contact": 40,
+    "status": "overdue",
+    "tags": ["gym", "family"],
+    "bio": "Gym buddy and workout motivation source.",
+    "goal": 17,
+    "next_due_date": "2026-04-29"
+  },
+  {
+    "id": 4,
+    "name": "Casey Morgan",
+    "picture": "https://picsum.photos/id/93/300/300",
+    "email": "casey@example.com",
+    "days_since_contact": 26,
+    "status": "overdue",
+    "tags": ["close friend", "work"],
+    "bio": "Childhood friend from the neighborhood.",
+    "goal": 7,
+    "next_due_date": "2026-05-10"
+  },
+  {
+    "id": 5,
+    "name": "Riley Quinn",
+    "picture": "https://picsum.photos/id/15/300/300",
+    "email": "riley@example.com",
+    "days_since_contact": 16,
+    "status": "soon",
+    "tags": ["travel"],
+    "bio": "Work colleague turned close confidant.",
+    "goal": 7,
+    "next_due_date": "2026-05-10"
+  },
+  {
+    "id": 6,
+    "name": "Jamie Patel",
+    "picture": "https://picsum.photos/id/62/300/300",
+    "email": "jamie@example.com",
+    "days_since_contact": 12,
+    "status": "soon",
+    "tags": ["family"],
+    "bio": "Travel companion from last summer's trip.",
+    "goal": 16,
+    "next_due_date": "2026-04-20"
+  },
+  {
+    "id": 7,
+    "name": "Sam Chen",
+    "picture": "https://picsum.photos/id/98/300/300",
+    "email": "sam@example.com",
+    "days_since_contact": 9,
+    "status": "soon",
+    "tags": ["gym"],
+    "bio": "Book club member with great recommendations.",
+    "goal": 22,
+    "next_due_date": "2026-04-18"
+  },
+  {
+    "id": 8,
+    "name": "Drew Thompson",
+    "picture": "https://picsum.photos/id/95/300/300",
+    "email": "drew@example.com",
+    "days_since_contact": 14,
+    "status": "soon",
+    "tags": ["gym"],
+    "bio": "Soccer teammate and weekend rival.",
+    "goal": 7,
+    "next_due_date": "2026-04-18"
+  },
+  {
+    "id": 9,
+    "name": "Parker Ellis",
+    "picture": "https://picsum.photos/id/58/300/300",
+    "email": "parker@example.com",
+    "days_since_contact": 13,
+    "status": "soon",
+    "tags": ["work"],
+    "bio": "Neighbor who became family.",
+    "goal": 30,
+    "next_due_date": "2026-04-29"
+  },
+  {
+    "id": 10,
+    "name": "Cameron Brooks",
+    "picture": "https://picsum.photos/id/46/300/300",
+    "email": "cameron@example.com",
+    "days_since_contact": 27,
+    "status": "overdue",
+    "tags": ["close friend"],
+    "bio": "Online friend who turned real-life bestie.",
+    "goal": 11,
+    "next_due_date": "2026-04-19"
+  }
+]

@@ -3,6 +3,7 @@ import { IoHomeOutline } from "react-icons/io5";
 import { Link, NavLink } from "react-router";
 import { IoMdStopwatch } from "react-icons/io";
 import { IoStatsChartOutline } from "react-icons/io5";
+import MyNavlink from "./MyNavlink";
 const Navbar = () => {
   return (
     <div className="bg-base-100 shadow-sm" >
@@ -14,26 +15,26 @@ const Navbar = () => {
           <ul className="menu menu-horizontal px-1">
             <li>
               {
-                <NavLink to="/">
+                <MyNavlink to="/">
                   <IoHomeOutline /> Home
-                </NavLink>
+                </MyNavlink >
               }
             </li>
             <li>
               {
-                <NavLink to="/timeline">
+                <MyNavlink   to="/timeline">
                   {" "}
                   <IoMdStopwatch /> Timeline
-                </NavLink>
+                </MyNavlink>
               }
             </li>
             <li>
-              {
-                <NavLink to="/stats">
+              { 
+                <MyNavlink to="/stats">
                   {" "}
                   <IoStatsChartOutline />
                   Stats
-                </NavLink>
+                </MyNavlink>
               }
             </li>
           </ul>
