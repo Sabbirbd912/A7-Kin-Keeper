@@ -1,9 +1,11 @@
 import React from 'react';
+import HeadSection from '../../comonents/homePage/HeadSection';
+
 
 const HomePage = () => {
     return (
         <div>
-            <h2>Home Page</h2>
+            <HeadSection></HeadSection>
         </div>
     );
 };

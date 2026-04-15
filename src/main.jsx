@@ -5,7 +5,7 @@ import './index.css'
 import { createBrowserRouter } from "react-router";
 import { RouterProvider } from "react-router/dom";
 import RootLayout from './layout/RootLayout';
-import HomePage from './pages/hompage/HomePage';
+import HomePage from './pages/hompage/Homepage';
 import Timelinepage from './pages/Timelinepage/Timelinepage';
 import StatsPage from './pages/StatsPage/StatsPage';
 
@@ -20,10 +20,11 @@ const router = createBrowserRouter([
     ],
     errorElement: <h1>Not Found</h1>,
   },
-]);
+]); 
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <RouterProvider router={router} />
   </StrictMode>,
 )
+  
