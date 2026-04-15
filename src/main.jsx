@@ -5,20 +5,25 @@ import './index.css'
 import { createBrowserRouter } from "react-router";
 import { RouterProvider } from "react-router/dom";
 import RootLayout from './layout/RootLayout';
+import HomePage from './pages/hompage/HomePage';
+import Timelinepage from './pages/Timelinepage/Timelinepage';
+import StatsPage from './pages/StatsPage/StatsPage';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <RootLayout />,
+    children: [
+      {index: true, element: <HomePage />},
+      {path: "/timeline", element: <Timelinepage />},
+      {path: "/stats", element: <StatsPage />},
+    ],
+    errorElement: <h1>Not Found</h1>,
   },
-  {
-    path: "/about",
-    element: <div>About Us</div>,
-  }
 ]);
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <RouterProvider router={router} />,
+    <RouterProvider router={router} />
   </StrictMode>,
 )
