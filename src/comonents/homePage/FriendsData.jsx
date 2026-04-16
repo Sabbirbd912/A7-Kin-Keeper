@@ -1,4 +1,3 @@
-import React, { use } from "react";
 import useFriendsData from "../../hooks/useFriendsData";
 import { Link } from "react-router";
 
