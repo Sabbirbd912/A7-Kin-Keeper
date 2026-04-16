@@ -5,7 +5,7 @@ export const CalledFriendContext=createContext();
 
 const CalledFriendProvider = ({ children }) => {
 
-      const [call, setCall] = useState([]);
+    const[call, setCall]=useState([]);
 
     const data={
         call,
