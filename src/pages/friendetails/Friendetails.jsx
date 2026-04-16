@@ -2,6 +2,10 @@ import { useParams } from "react-router";
 import useFriendsData from "../../hooks/useFriendsData";
 import { IoCallOutline, IoVideocamOutline } from "react-icons/io5";
 import { BsChatLeftText } from "react-icons/bs";
+// import { useContext, useState } from "react";
+import { CalledFriendContext } from "../../context/CalledFriendProvider";
+import { useContext } from "react";
+import { toast } from "react-toastify";
 
 const Friendetails = () => {
   const { id } = useParams();
@@ -9,12 +13,34 @@ const Friendetails = () => {
 
   const expectedFriend = friends?.find((friend) => String(friend.id) === id);
 
+  // const [call, setCall] = useState([]);
+
+  const {call, setCall}=useContext(CalledFriendContext);
+
   if (loading) {
-    return <div className="flex justify-center items-center h-screen">Loading...</div>;
+    return (
+      <div className="flex justify-center items-center h-screen">
+        Loading...
+      </div>
+    );
   }
 
-  return (
+const handleAction = (type) => {
+  const interactionData = {
+    ...expectedFriend,
+    interactionType: type,
+    timestamp: new Date().toLocaleDateString('en-US', {
+      month: 'long',
+      day: 'numeric',
+      year: 'numeric'
+    })
+  };
+  setCall([...call, interactionData]);
+  toast(`Clicked ${type}`);
+};
+  console.log(expectedFriend);
 
+  return (
     <div className="container mx-auto p-4 md:p-8 flex flex-col lg:flex-row justify-center items-start gap-8 min-h-screen">
       <div className="w-full lg:w-1/3 space-y-4">
         <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 flex flex-col items-center text-center">
@@ -25,9 +51,11 @@ const Friendetails = () => {
               alt={expectedFriend?.name}
             />
           </div>
-          
-          <h3 className="text-2xl font-bold text-gray-800 mt-4">{expectedFriend?.name}</h3>
-          
+
+          <h3 className="text-2xl font-bold text-gray-800 mt-4">
+            {expectedFriend?.name}
+          </h3>
+
           <div className="flex gap-2 mt-3">
             <span className="px-3 py-1 bg-red-500 text-white text-[10px] font-bold rounded-full uppercase">
               {expectedFriend?.status || "Overdue"}
@@ -36,12 +64,9 @@ const Friendetails = () => {
               {expectedFriend?.tags || "Family"}
             </span>
           </div>
-          
+
           <p className="text-gray-500 italic mt-4 text-sm">
             "{expectedFriend?.bio || "Former colleague, great mentor"}"
-          </p>
-          <p className="text-xs text-gray-400 mt-2 font-medium">
-            Preferred: {expectedFriend?.preferred || "email"}
           </p>
         </div>
 
@@ -59,7 +84,6 @@ const Friendetails = () => {
       </div>
 
       <div className="w-full lg:flex-1 space-y-6">
-        
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           <StatCard value="62" label="Days Since Contact" />
           <StatCard value="30" label="Goal (Days)" />
@@ -68,9 +92,12 @@ const Friendetails = () => {
 
         <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 flex justify-between items-center group">
           <div>
-            <h2 className="text-lg font-bold text-slate-800">Relationship Goal</h2>
+            <h2 className="text-lg font-bold text-slate-800">
+              Relationship Goal
+            </h2>
             <p className="text-slate-500 mt-1">
-              Connect every <span className="font-bold text-slate-800">30 days</span>
+              Connect every{" "}
+              <span className="font-bold text-slate-800">30 days</span>
             </p>
           </div>
           <button className="px-5 py-2 border border-gray-200 rounded-lg text-sm font-semibold hover:bg-gray-50 transition">
@@ -79,11 +106,33 @@ const Friendetails = () => {
         </div>
 
         <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
-          <h2 className="text-lg font-bold text-slate-800 mb-6">Quick Check-In</h2> 
+          <h2 className="text-lg font-bold text-slate-800 mb-6">
+            Quick Check-In
+          </h2>
           <div className="grid grid-cols-3 gap-4">
-            <CheckInButton icon={<IoCallOutline size={24} />} label="Call" />
-            <CheckInButton icon={<BsChatLeftText size={20} />} label="Text" />
-            <CheckInButton icon={<IoVideocamOutline size={24} />} label="Video" />
+            <button
+              onClick={() => handleAction('Call')}
+              className="flex flex-col items-center justify-center gap-2 p-4 border border-gray-100 bg-white rounded-2xl transition-all duration-200 hover:bg-gray-50 hover:border-gray-200 active:scale-95 active:bg-gray-100 shadow-sm group"
+            >
+              <span className="text-gray-600 group-hover:text-blue-600 transition-colors">
+                <IoCallOutline size={24} />
+              </span>
+              <span className="text-sm font-semibold text-gray-700">Call</span>
+            </button>
+
+            <button onClick={() => handleAction('Text')} className="flex flex-col items-center justify-center gap-2 p-4 border border-gray-100 bg-white rounded-2xl transition-all duration-200 hover:bg-gray-50 hover:border-gray-200 active:scale-95 active:bg-gray-100 shadow-sm group">
+              <span className="text-gray-600 group-hover:text-blue-600 transition-colors">
+                <BsChatLeftText size={24} />
+              </span>
+              <span className="text-sm font-semibold text-gray-700">Text</span>
+            </button>
+
+            <button onClick={() => handleAction('Video')} className="flex flex-col items-center justify-center gap-2 p-4 border border-gray-100 bg-white rounded-2xl transition-all duration-200 hover:bg-gray-50 hover:border-gray-200 active:scale-95 active:bg-gray-100 shadow-sm group">
+              <span className="text-gray-600 group-hover:text-blue-600 transition-colors">
+                <IoVideocamOutline size={24} />
+              </span>
+              <span className="text-sm font-semibold text-gray-700">Video</span>
+            </button>
           </div>
         </div>
       </div>
@@ -94,7 +143,9 @@ const Friendetails = () => {
 const StatCard = ({ value, label }) => (
   <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 text-center hover:border-blue-100 transition">
     <h2 className="text-3xl font-bold text-slate-700 leading-none">{value}</h2>
-    <p className="text-xs text-slate-400 mt-2 font-medium uppercase tracking-wide">{label}</p>
+    <p className="text-xs text-slate-400 mt-2 font-medium uppercase tracking-wide">
+      {label}
+    </p>
   </div>
 );
 
@@ -103,7 +154,9 @@ const CheckInButton = ({ icon, label }) => (
     <div className="text-slate-600 group-hover:text-blue-500 transition-colors">
       {icon}
     </div>
-    <span className="text-xs font-bold text-slate-600 uppercase tracking-tighter">{label}</span>
+    <span className="text-xs font-bold text-slate-600 uppercase tracking-tighter">
+      {label}
+    </span>
   </button>
 );
 
