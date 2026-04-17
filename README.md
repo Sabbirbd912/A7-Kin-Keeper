@@ -1,7 +1,8 @@
 # React + Vite
 
-KeenKeeper
-It is a Relationship Management tools which is help you connect your friends and colleauge like a Network, Where you can truck your interaction to others. 
+🌿 KeenKeeper - Personal Connection Tracker
+KeenKeeper is a relationship management tool designed to help you nurture and maintain meaningful connections with friends, family, and colleagues. It helps you track when you last interacted with someone and reminds you who needs your attention most.
+
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
