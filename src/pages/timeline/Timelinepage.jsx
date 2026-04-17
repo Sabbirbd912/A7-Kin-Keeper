@@ -36,9 +36,9 @@ const Timelinepage = () => {
 
       <div className="mb-4">
         <div className="dropdown">
-          <div tabIndex={0} role="button" className="btn m-1 bg-white border-gray-300">
+          <summary tabIndex={0} role="button" className="btn m-1 bg-white border-gray-300">
             {filter==="All" ? "Filter Interactions" :  `Showing: ${filter}`}
-          </div>
+          </summary>
           <ul
             tabIndex={0}
             className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm"

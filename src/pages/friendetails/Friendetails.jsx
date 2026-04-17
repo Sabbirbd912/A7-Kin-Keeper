@@ -5,6 +5,9 @@ import { BsChatLeftText } from "react-icons/bs";
 import { CalledFriendContext } from "../../context/CalledFriendProvider";
 import { useContext } from "react";
 import { toast } from "react-toastify";
+import { VscCopilotSnooze } from "react-icons/vsc";
+import { FiArchive } from "react-icons/fi";
+import { MdDeleteSweep } from "react-icons/md";
 
 const Friendetails = () => {
   const { id } = useParams();
@@ -65,28 +68,28 @@ const Friendetails = () => {
           </div>
 
           <p className="text-gray-500 italic mt-4 text-sm">
-            "{expectedFriend?.bio || "Former colleague, great mentor"}"
+            "{expectedFriend?.description}"
           </p>
         </div>
 
         <div className="flex flex-col gap-3">
           <button className="flex items-center justify-center gap-2 w-full py-3 bg-white border border-gray-200 rounded-xl hover:bg-gray-50 transition shadow-sm font-medium">
-            Snooze 2 Weeks
+           <VscCopilotSnooze /> Snooze 2 Weeks
           </button>
           <button className="flex items-center justify-center gap-2 w-full py-3 bg-white border border-gray-200 rounded-xl hover:bg-gray-50 transition shadow-sm font-medium">
-            Archive
+          <FiArchive />  Archive
           </button>
           <button className="flex items-center justify-center gap-2 w-full py-3 bg-white border border-gray-200 rounded-xl text-red-500 hover:bg-red-50 transition shadow-sm font-medium">
-            Delete
+          <MdDeleteSweep /> Delete
           </button>
         </div>
       </div>
 
       <div className="w-full lg:flex-1 space-y-6">
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-          <StatCard value="62" label="Days Since Contact" />
-          <StatCard value="30" label="Goal (Days)" />
-          <StatCard value="Feb 27, 2026" label="Next Due" />
+          <StatCard value={expectedFriend.days_since_contact} label="Days Since Contact" />
+          <StatCard value={expectedFriend.goal_days} label="Goal (Days)" />
+          <StatCard value={expectedFriend.next_due} label="Next Due" />
         </div>
 
         <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 flex justify-between items-center group">

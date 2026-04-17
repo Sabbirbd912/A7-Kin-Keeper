@@ -6,7 +6,7 @@ import { IoStatsChartOutline } from "react-icons/io5";
 import MyNavlink from "./MyNavlink";
 const Navbar = () => {
   return (
-    <div className="bg-base-100 shadow-sm ">
+    <div className="bg-base-100 shadow-sm sticky top-0 z-50">
       <div className="navbar container mx-auto">
         <div className="navbar-start">
           <div className="dropdown">
@@ -55,7 +55,7 @@ const Navbar = () => {
               </li>
             </ul>
           </div>
-          <Link to="/" className="text-xl font-semibold">
+          <Link to="/" className="text-3xl font-semibold">
             <span className="font-bold">Keen</span>Keen
           </Link>
         </div>
