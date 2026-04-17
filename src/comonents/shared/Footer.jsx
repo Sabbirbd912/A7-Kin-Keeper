@@ -2,9 +2,9 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <footer className="footer footer-horizontal footer-center mb-0 bg-[#244D3F] text-base-content rounded p-10">
+    <footer className="footer footer-horizontal footer-center bg-[#244D3F] text-base-content rounded p-6">
       <div>
-        <h2 className="text-5xl font-semibold text-white">
+        <h2 className="text-4xl font-semibold text-white mb-2">
           <span className="font-bold">Keen</span>Keeper
         </h2>
         <p className="text-xl text-amber-50">
@@ -14,7 +14,7 @@ const Footer = () => {
       </div>
       <nav>
         <div className="flex flex-col text-white" >
-          <h2 className="my-4">Social Link</h2>
+          <h2 className="mb-2 text-xl">Social Link</h2>
           <div className="grid grid-flow-col gap-4">
             <a>
               <svg
@@ -52,7 +52,7 @@ const Footer = () => {
           </div>
         </div>
       </nav>
-      <aside className="flex items-center justify-between gap-8 md:gap-72">
+      <aside className="grid grid-cols-1 md:grid-cols-2 gap-40 lg:gap-72 border-t border-gray-300 pt-4 mt-4">
         <p className="text-sm text-amber-50">
           Copyright © {new Date().getFullYear()} - All right reserved by Sabbirbd.dev
         </p>

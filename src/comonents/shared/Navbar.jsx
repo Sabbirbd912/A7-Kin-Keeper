@@ -6,8 +6,8 @@ import { IoStatsChartOutline } from "react-icons/io5";
 import MyNavlink from "./MyNavlink";
 const Navbar = () => {
   return (
-    <div className="bg-base-100 shadow-sm">
-      <div className="navbar bg-base-100 shadow-sm">
+    <div className="bg-base-100 shadow-sm ">
+      <div className="navbar container mx-auto">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -32,25 +32,32 @@ const Navbar = () => {
               className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
             >
               <li>
-                <a>Item 1</a>
+                {
+                  <MyNavlink to="/">
+                    <IoHomeOutline /> Home
+                  </MyNavlink>
+                }
               </li>
               <li>
-                <a>Parent</a>
-                <ul className="p-2">
-                  <li>
-                    <a>Submenu 1</a>
-                  </li>
-                  <li>
-                    <a>Submenu 2</a>
-                  </li>
-                </ul>
+                {
+                  <MyNavlink to="/timeline">
+                    <IoMdStopwatch /> Timeline
+                  </MyNavlink>
+                }
               </li>
               <li>
-                <a>Item 3</a>
+                {
+                  <MyNavlink to="/stats">
+                    <IoStatsChartOutline />
+                    Stats
+                  </MyNavlink>
+                }
               </li>
             </ul>
           </div>
-          <a className="btn btn-ghost text-xl">KeenKeeper</a>
+          <Link to="/" className="text-xl font-semibold">
+            <span className="font-bold">Keen</span>Keen
+          </Link>
         </div>
         <div className="navbar-end hidden lg:flex">
           <ul className="menu menu-horizontal px-1">

@@ -5,9 +5,12 @@ const MyNavlink = ({ to, children }) => {
   return (
     <NavLink
       to={to}
-      className={({ isActive }) => `font-semibold ${isActive ? "bg-[#244D3F] text-white" : "text-gray-700"}`}
+      end={to === "/"}
+      className={({ isActive }) =>
+        `font-semibold ${isActive ? "bg-[#2a6854] text-white" : "text-gray-700"}`
+      }
     >
-         {children}
+      {children}
     </NavLink>
   );
 };

@@ -2,7 +2,6 @@ import { useParams } from "react-router";
 import useFriendsData from "../../hooks/useFriendsData";
 import { IoCallOutline, IoVideocamOutline } from "react-icons/io5";
 import { BsChatLeftText } from "react-icons/bs";
-// import { useContext, useState } from "react";
 import { CalledFriendContext } from "../../context/CalledFriendProvider";
 import { useContext } from "react";
 import { toast } from "react-toastify";
@@ -15,7 +14,7 @@ const Friendetails = () => {
 
   // const [call, setCall] = useState([]);
 
-  const {call, setCall}=useContext(CalledFriendContext);
+  const { call, setCall } = useContext(CalledFriendContext);
 
   if (loading) {
     return (
@@ -25,19 +24,19 @@ const Friendetails = () => {
     );
   }
 
-const handleAction = (type) => {
-  const interactionData = {
-    ...expectedFriend,
-    interactionType: type,
-    timestamp: new Date().toLocaleDateString('en-US', {
-      month: 'long',
-      day: 'numeric',
-      year: 'numeric'
-    })
+  const handleAction = (type) => {
+    const interactionData = {
+      ...expectedFriend,
+      interactionType: type,
+      timestamp: new Date().toLocaleDateString("en-US", {
+        month: "long",
+        day: "numeric",
+        year: "numeric",
+      }),
+    };
+    setCall([...call, interactionData]);
+    toast(`Clicked ${type}`);
   };
-  setCall([...call, interactionData]);
-  toast(`Clicked ${type}`);
-};
   console.log(expectedFriend);
 
   return (
@@ -111,7 +110,7 @@ const handleAction = (type) => {
           </h2>
           <div className="grid grid-cols-3 gap-4">
             <button
-              onClick={() => handleAction('Call')}
+              onClick={() => handleAction("Call")}
               className="flex flex-col items-center justify-center gap-2 p-4 border border-gray-100 bg-white rounded-2xl transition-all duration-200 hover:bg-gray-50 hover:border-gray-200 active:scale-95 active:bg-gray-100 shadow-sm group"
             >
               <span className="text-gray-600 group-hover:text-blue-600 transition-colors">
@@ -120,14 +119,20 @@ const handleAction = (type) => {
               <span className="text-sm font-semibold text-gray-700">Call</span>
             </button>
 
-            <button onClick={() => handleAction('Text')} className="flex flex-col items-center justify-center gap-2 p-4 border border-gray-100 bg-white rounded-2xl transition-all duration-200 hover:bg-gray-50 hover:border-gray-200 active:scale-95 active:bg-gray-100 shadow-sm group">
+            <button
+              onClick={() => handleAction("Text")}
+              className="flex flex-col items-center justify-center gap-2 p-4 border border-gray-100 bg-white rounded-2xl transition-all duration-200 hover:bg-gray-50 hover:border-gray-200 active:scale-95 active:bg-gray-100 shadow-sm group"
+            >
               <span className="text-gray-600 group-hover:text-blue-600 transition-colors">
                 <BsChatLeftText size={24} />
               </span>
               <span className="text-sm font-semibold text-gray-700">Text</span>
             </button>
 
-            <button onClick={() => handleAction('Video')} className="flex flex-col items-center justify-center gap-2 p-4 border border-gray-100 bg-white rounded-2xl transition-all duration-200 hover:bg-gray-50 hover:border-gray-200 active:scale-95 active:bg-gray-100 shadow-sm group">
+            <button
+              onClick={() => handleAction("Video")}
+              className="flex flex-col items-center justify-center gap-2 p-4 border border-gray-100 bg-white rounded-2xl transition-all duration-200 hover:bg-gray-50 hover:border-gray-200 active:scale-95 active:bg-gray-100 shadow-sm group"
+            >
               <span className="text-gray-600 group-hover:text-blue-600 transition-colors">
                 <IoVideocamOutline size={24} />
               </span>

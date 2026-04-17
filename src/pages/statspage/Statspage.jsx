@@ -23,7 +23,7 @@ const Statspage = () => {
 
   if (call.length === 0) {
     return (
-      <div className="flex flex-col items-center justify-center h-64 border-2 border-dashed rounded-xl m-4">
+      <div className="flex flex-col items-center justify-center h-64 m-4">
         <p className="text-gray-400">No data available to show analytics.</p>
         <p className="text-xs text-gray-300">
           Interact with friends to see stats!
